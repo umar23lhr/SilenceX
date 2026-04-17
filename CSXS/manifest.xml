@@ -19,8 +19,8 @@
 		<Extension Id="com.umar.silencex.panel">
 			<DispatchInfo>
 				<Resources>
-					<MainPath>./index.html</MainPath>
-					<ScriptPath>./extendscript.js</ScriptPath>
+					<MainPath>index.html</MainPath>
+					<ScriptPath>extendscript.js</ScriptPath>
 				</Resources>
 				<Lifecycle>
 					<AutoVisible>true</AutoVisible>

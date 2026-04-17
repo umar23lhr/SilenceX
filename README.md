@@ -34,9 +34,14 @@ npm run build
 
 ---
 
-## 🛠 Troubleshooting "Empty Panel"
-If you still see an empty panel, try these manual fixes:
+## 🛠 Troubleshooting "Empty/Black Panel"
+If you still see a black screen in Premiere Pro 2023, I have added **Legacy Engine Support** and an **Error Logger** to help:
 
+1.  **Legacy Core**: I added an auto-fallback system (`@vitejs/plugin-legacy`) that generates code compatible with older versions of Premiere Pro's internal engine.
+2.  **Global Polyfills**: Fixed errors where Adobe's engine couldn't find "global" or "process" variables.
+3.  **On-Screen Error Logger**: If it *still* crashes, you will now see a **Red Error Message** inside the panel instead of a black screen. This will tell us exactly what is wrong.
+
+### Manual Fixes:
 1.  **Manual Registry Fix (Windows)**:
     Sometimes the installer might need Admin rights. Open PowerShell as Administrator and run:
     ```powershell
@@ -45,6 +50,7 @@ If you still see an empty panel, try these manual fixes:
     reg add "HKCU\Software\Adobe\CSXS.9" /v PlayerDebugMode /t REG_SZ /d 1 /f
     reg add "HKCU\Software\Adobe\CSXS.10" /v PlayerDebugMode /t REG_SZ /d 1 /f
     reg add "HKCU\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d 1 /f
+    reg add "HKCU\Software\Adobe\CSXS.12" /v PlayerDebugMode /t REG_SZ /d 1 /f
     ```
 
 2.  **Verify Files**: 

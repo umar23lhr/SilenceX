@@ -33,6 +33,7 @@ Root: HKCU; Subkey: "Software\Adobe\CSXS.8"; ValueName: "PlayerDebugMode"; Value
 Root: HKCU; Subkey: "Software\Adobe\CSXS.9"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
 Root: HKCU; Subkey: "Software\Adobe\CSXS.10"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
 Root: HKCU; Subkey: "Software\Adobe\CSXS.11"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.12"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
 
 [Icons]
 Name: "{group}\SilenceX by Umar"; Filename: "{app}\index.html"
