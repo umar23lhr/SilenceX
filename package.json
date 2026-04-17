@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
+    "postbuild": "node scripts/prepare-package.js",
+    "package:ccx": "npm run build && cd release && zip -r ../SilenceX.ccx .",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"

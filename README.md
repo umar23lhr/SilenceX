@@ -22,6 +22,32 @@ Professional Adobe Premiere Pro plugin for automatic silence detection and remov
 4. **Load the Plugin:**
    Use the **Adobe UXP Developer Tool** to "Add Plugin" and point to the `manifest.json`.
 
+## 📦 Packaging & Distribution
+
+### 1. Prepare for Release
+First, generate the production-ready plugin folder:
+```bash
+npm run build
+```
+This will:
+- Compile the React frontend using Vite.
+- Run `scripts/prepare-package.js`.
+- Gather everything (manifest, scripts, assets) into the `/release` folder.
+
+### 2. Create the .EXE Installer (Windows)
+To generate the one-click `.exe` installer requested:
+1.  Install [Inno Setup Compiler](https://jrsoftware.org/isdl.php).
+2.  Open `installer/silencex_installer.iss`.
+3.  Click **Compile** (Play button).
+4.  Your installer will be generated in `installer/setup/SilenceX_Setup_v1.0.0.exe`.
+
+### 3. Create the .CCX Package (Adobe Standard)
+To create a native Adobe package:
+```bash
+npm run package:ccx
+```
+This generates `SilenceX.ccx` which can be installed via double-click in Creative Cloud.
+
 ## 🛠 Project Structure
 
 - `manifest.json`: UXP v5.0+ configuration & permissions.
