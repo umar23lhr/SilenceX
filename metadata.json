@@ -1,0 +1,6 @@
+{
+  "name": "Silence Remover for Premiere Pro",
+  "description": "A professional UXP plugin for Adobe Premiere Pro that automatically detects and removes silent parts of a sequence using FFmpeg and ExtendScript logic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

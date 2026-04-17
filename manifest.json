@@ -1,0 +1,45 @@
+{
+  "id": "com.my-plugin.silence-remover",
+  "name": "Silence Remover",
+  "version": "1.0.0",
+  "main": "index.html",
+  "host": [
+    {
+      "app": "PPRO",
+      "minVersion": "22.0.0"
+    }
+  ],
+  "manifestVersion": 5,
+  "entrypoints": [
+    {
+      "type": "panel",
+      "id": "silence-remover-panel",
+      "label": {
+        "default": "Silence Remover"
+      },
+      "minimumSize": {
+        "width": 280,
+        "height": 400
+      },
+      "preferredSize": {
+        "width": 320,
+        "height": 600
+      }
+    }
+  ],
+  "permissions": [
+    "localFileSystem",
+    "network",
+    "launchProcess",
+    "clipboard"
+  ],
+  "icons": [
+    {
+      "width": 24,
+      "height": 24,
+      "path": "icons/icon_light.png",
+      "scale": [1, 2],
+      "theme": ["light", "darkest", "medium"]
+    }
+  ]
+}

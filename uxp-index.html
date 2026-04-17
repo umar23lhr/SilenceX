@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silence Remover</title>
+    <!-- Adobe Spectrum CSS for UXP components -->
+    <link rel="stylesheet" href="https://adobe.com/spectrum-uxp.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--uxp-host-background-color);
+            color: var(--uxp-host-text-color);
+            font-family: var(--uxp-host-font-family);
+            font-size: var(--uxp-host-font-size);
+            overflow: hidden;
+        }
+        #root {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Build output will be injected here -->
+    <script type="module" src="./src/main.tsx"></script>
+</body>
+</html>
