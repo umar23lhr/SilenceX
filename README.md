@@ -18,12 +18,13 @@ npm run build
 1.  Install [Inno Setup Compiler](https://jrsoftware.org/isdl.php).
 2.  Open the file: `installer/silencex_installer.iss`.
 3.  Press **F9** or click the **Play** (Compile) button.
-4.  Once finished, it will create an installer in: `installer/setup/SilenceX_Ultimate_Setup.exe`.
+4.  Once finished, it will create an installer in: `installer/setup/SilenceX_Professional_Setup.exe`.
 
 ### 3. Install the Extension
 1.  Close Adobe Premiere Pro.
-2.  Run the `SilenceX_Ultimate_Setup.exe` you just created.
-3.  Follow the setup wizard to completion.
+2.  Run the `SilenceX_Professional_Setup.exe` you just created.
+3.  **IMPORTANT**: Run as Administrator if prompted. This installs to the System Common Files folder for 100% visibility.
+4.  Follow the setup wizard to completion.
     *   *Note: The installer automatically enables "PlayerDebugMode" so Premiere Pro can see the plugin.*
 
 ### 4. Open in Premiere Pro 2023
@@ -51,10 +52,11 @@ If you still see a black screen in Premiere Pro 2023, I have added **Legacy Engi
     reg add "HKCU\Software\Adobe\CSXS.10" /v PlayerDebugMode /t REG_SZ /d 1 /f
     reg add "HKCU\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d 1 /f
     reg add "HKCU\Software\Adobe\CSXS.12" /v PlayerDebugMode /t REG_SZ /d 1 /f
+    reg add "HKCU\Software\Adobe\CSXS.13" /v PlayerDebugMode /t REG_SZ /d 1 /f
     ```
 
 2.  **Verify Files**: 
-    Ensure the folder `C:\Users\<YourUser>\AppData\Roaming\Adobe\CEP\extensions\SilenceX` exists and contains the files from the `release/` folder.
+    Ensure the folder `C:\Program Files (x86)\Common Files\Adobe\CEP\extensions\com.umar.silencex` exists and contains the files from the `release/` folder.
 
 ---
 

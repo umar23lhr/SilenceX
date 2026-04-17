@@ -7,11 +7,11 @@ AppName=SilenceX by Umar
 AppVersion=1.0.0
 AppPublisher=Umar
 AppPublisherURL=https://github.com/umar
-DefaultDirName={userappdata}\Adobe\CEP\extensions\SilenceX
+DefaultDirName={commoncf32}\Adobe\CEP\extensions\com.umar.silencex
 DefaultGroupName=SilenceX by Umar
 AllowNoIcons=yes
 OutputDir=setup
-OutputBaseFilename=SilenceX_Ultimate_Setup
+OutputBaseFilename=SilenceX_Professional_Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -34,6 +34,7 @@ Root: HKCU; Subkey: "Software\Adobe\CSXS.9"; ValueName: "PlayerDebugMode"; Value
 Root: HKCU; Subkey: "Software\Adobe\CSXS.10"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
 Root: HKCU; Subkey: "Software\Adobe\CSXS.11"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
 Root: HKCU; Subkey: "Software\Adobe\CSXS.12"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.13"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
 
 [Icons]
 Name: "{group}\SilenceX by Umar"; Filename: "{app}\index.html"
