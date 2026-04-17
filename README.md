@@ -56,7 +56,7 @@ If you still see a black screen in Premiere Pro 2023, I have added **Legacy Engi
     ```
 
 2.  **Verify Files**: 
-    Ensure the folder `C:\Program Files (x86)\Common Files\Adobe\CEP\extensions\com.umar.silencex` exists and contains the files from the `release/` folder.
+    Ensure the folder `C:\Program Files\Common Files\Adobe\CEP\extensions\com.umar.silencex` exists and contains the files from the `release/` folder.
 
 ---
 

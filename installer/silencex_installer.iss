@@ -2,12 +2,12 @@
 ; This script generates a professional .exe installer for the Premiere Pro plugin.
 
 [Setup]
-AppId={D3F7B2A1-8E4C-4F9D-A7B2-9E1A2B3C4D5E}
+AppId={{D3F7B2A1-8E4C-4F9D-A7B2-9E1A2B3C4D5E}
 AppName=SilenceX by Umar
 AppVersion=1.0.0
 AppPublisher=Umar
 AppPublisherURL=https://github.com/umar
-DefaultDirName={commoncf32}\Adobe\CEP\extensions\com.umar.silencex
+DefaultDirName={commoncf}\Adobe\CEP\extensions\com.umar.silencex
 DefaultGroupName=SilenceX by Umar
 AllowNoIcons=yes
 OutputDir=setup
