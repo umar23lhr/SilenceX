@@ -2,7 +2,7 @@
 ; This script generates a professional .exe installer for the Premiere Pro plugin.
 
 [Setup]
-AppId={{D3F7B2A1-8E4C-4F9D-A7B2-9E1A2B3C4D5E}
+AppId={D3F7B2A1-8E4C-4F9D-A7B2-9E1A2B3C4D5E}
 AppName=SilenceX by Umar
 AppVersion=1.0.0
 AppPublisher=Umar
@@ -28,11 +28,11 @@ Source: "..\release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs cr
 
 [Registry]
 ; Enable Player Debug Mode for CEP Extensions (Allows unsigned plugins to run)
-Root: HKCU; Subkey: "Software\Adobe\CSXS.7"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
-Root: HKCU; Subkey: "Software\Adobe\CSXS.8"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
-Root: HKCU; Subkey: "Software\Adobe\CSXS.9"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
-Root: HKCU; Subkey: "Software\Adobe\CSXS.10"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
-Root: HKCU; Subkey: "Software\Adobe\CSXS.11"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.7"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.8"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.9"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.10"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.11"; ValueName: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
 
 [Icons]
 Name: "{group}\SilenceX by Umar"; Filename: "{app}\index.html"
