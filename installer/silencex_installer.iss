@@ -7,11 +7,11 @@ AppName=SilenceX by Umar
 AppVersion=1.0.0
 AppPublisher=Umar
 AppPublisherURL=https://github.com/umar
-DefaultDirName={userappdata}\Adobe\UXP\Plugins\SilenceX
+DefaultDirName={userappdata}\Adobe\CEP\extensions\SilenceX
 DefaultGroupName=SilenceX by Umar
 AllowNoIcons=yes
 OutputDir=setup
-OutputBaseFilename=SilenceX_Setup_v1.0.0
+OutputBaseFilename=SilenceX_Ultimate_Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -26,8 +26,16 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 ; Source is the 'release' folder prepared by the npm run build script
 Source: "..\release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
+[Registry]
+; Enable Player Debug Mode for CEP Extensions (Allows unsigned plugins to run)
+Root: HKCU; Subkey: "Software\Adobe\CSXS.7"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.8"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.9"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.10"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\Adobe\CSXS.11"; Name: "PlayerDebugMode"; ValueType: string; ValueData: "1"; Flags: uninsdeletevalue
+
 [Icons]
-Name: "{group}\SilenceX by Umar"; Filename: "{app}\manifest.json"
+Name: "{group}\SilenceX by Umar"; Filename: "{app}\index.html"
 
 [Messages]
 WelcomeLabel2=This will install SilenceX by Umar as an extension for Adobe Premiere Pro. Please make sure Premiere Pro is closed before continuing.

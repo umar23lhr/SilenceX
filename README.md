@@ -22,6 +22,22 @@ Professional Adobe Premiere Pro plugin for automatic silence detection and remov
 4. **Load the Plugin:**
    Use the **Adobe UXP Developer Tool** to "Add Plugin" and point to the `manifest.json`.
 
+### 🛑 Special Note for Premiere Pro 2023
+If you are using **Premiere Pro 2023**, the "UXP Plugins" menu may be missing or limited. The **best and alternate way** to add it is through the **Extensions** menu (CEP architecture), which I have now added to the project.
+
+#### Guaranteed Method for PPRO 2023:
+1.  **Run the Build**: `npm run build`
+2.  **Generate Installer**: Compile `installer/silencex_installer.iss` with Inno Setup.
+3.  **Run the .EXE**: The installer now targets `Adobe\CEP\extensions`, ensuring it shows up in **Window > Extensions > SilenceX by Umar**.
+4.  **Allow Unsigned Extensions**: The installer automatically adds the "PlayerDebugMode" registry keys for you. If installing manually, you must run the following command in PowerShell as Admin:
+    ```powershell
+    reg add "HKCU\Software\Adobe\CSXS.7" /v PlayerDebugMode /t REG_SZ /d 1 /f
+    reg add "HKCU\Software\Adobe\CSXS.8" /v PlayerDebugMode /t REG_SZ /d 1 /f
+    reg add "HKCU\Software\Adobe\CSXS.9" /v PlayerDebugMode /t REG_SZ /d 1 /f
+    reg add "HKCU\Software\Adobe\CSXS.10" /v PlayerDebugMode /t REG_SZ /d 1 /f
+    reg add "HKCU\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d 1 /f
+    ```
+
 ## 📦 Packaging & Distribution
 
 ### 1. Prepare for Release
