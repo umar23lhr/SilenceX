@@ -1,35 +1,44 @@
-# Silence Remover for Premiere Pro (UXP)
+# 🎬 SilenceX by Umar - Premiere Pro Extension
 
-Professional Adobe Premiere Pro plugin for automatic silence detection and removal.
+The reason the panel was empty is that the code needed to use **relative paths**. I have fixed this in `vite.config.ts`. Please follow these exact steps to get it working.
 
-## 🚀 Installation
+---
 
-1. **Locate your UXP Plugins folder:**
-   - **macOS:** `~/Library/Application Support/Adobe/UXP/Plugins`
-   - **Windows:** `%AppData%\Adobe\UXP\Plugins`
+## 🚀 Step-by-Step Installation Guide
 
-2. **Download/Copy the project files:**
-   Place the following files into a new folder named `SilenceRemover` inside the Plugins directory:
-   - `manifest.json`
-   - `index.html` (entry point)
-   - `dist/` (after building)
-   - `src/extendscript.js`
+### 1. Build the Plugin (CRITICAL)
+You must generate the compiled files first. Open your terminal in the project folder and run:
+```bash
+npm run build
+```
+*   **What this does:** It creates a `dist/` folder with the mini-optimized app and then runs a script to gather everything into a `release/` folder.
+*   **Verify:** Check if you now have a `release/` folder containing `index.html`, `CSXS/`, and `extendscript.js`.
 
-3. **Enable Developer Mode in Premiere Pro:**
-   - Go to `Edit > Preferences > Plug-ins` (Windows) or `Premiere Pro > Settings > Plug-ins` (macOS).
-   - Ensure "Allow UXP Developer Tools" is enabled if you are using the UXP Developer Tool.
+### 2. Create the Installer (.EXE)
+1.  Install [Inno Setup Compiler](https://jrsoftware.org/isdl.php).
+2.  Open the file: `installer/silencex_installer.iss`.
+3.  Press **F9** or click the **Play** (Compile) button.
+4.  Once finished, it will create an installer in: `installer/setup/SilenceX_Ultimate_Setup.exe`.
 
-4. **Load the Plugin:**
-   Use the **Adobe UXP Developer Tool** to "Add Plugin" and point to the `manifest.json`.
+### 3. Install the Extension
+1.  Close Adobe Premiere Pro.
+2.  Run the `SilenceX_Ultimate_Setup.exe` you just created.
+3.  Follow the setup wizard to completion.
+    *   *Note: The installer automatically enables "PlayerDebugMode" so Premiere Pro can see the plugin.*
 
-### 🛑 Special Note for Premiere Pro 2023
-If you are using **Premiere Pro 2023**, the "UXP Plugins" menu may be missing or limited. The **best and alternate way** to add it is through the **Extensions** menu (CEP architecture), which I have now added to the project.
+### 4. Open in Premiere Pro 2023
+1.  Launch **Premiere Pro 2023**.
+2.  Open any project.
+3.  Go to the top menu: **Window > Extensions > SilenceX by Umar**.
+4.  The panel should now load perfectly with the Glitch UI!
 
-#### Guaranteed Method for PPRO 2023:
-1.  **Run the Build**: `npm run build`
-2.  **Generate Installer**: Compile `installer/silencex_installer.iss` with Inno Setup.
-3.  **Run the .EXE**: The installer now targets `Adobe\CEP\extensions`, ensuring it shows up in **Window > Extensions > SilenceX by Umar**.
-4.  **Allow Unsigned Extensions**: The installer automatically adds the "PlayerDebugMode" registry keys for you. If installing manually, you must run the following command in PowerShell as Admin:
+---
+
+## 🛠 Troubleshooting "Empty Panel"
+If you still see an empty panel, try these manual fixes:
+
+1.  **Manual Registry Fix (Windows)**:
+    Sometimes the installer might need Admin rights. Open PowerShell as Administrator and run:
     ```powershell
     reg add "HKCU\Software\Adobe\CSXS.7" /v PlayerDebugMode /t REG_SZ /d 1 /f
     reg add "HKCU\Software\Adobe\CSXS.8" /v PlayerDebugMode /t REG_SZ /d 1 /f
@@ -38,48 +47,12 @@ If you are using **Premiere Pro 2023**, the "UXP Plugins" menu may be missing or
     reg add "HKCU\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d 1 /f
     ```
 
-## 📦 Packaging & Distribution
+2.  **Verify Files**: 
+    Ensure the folder `C:\Users\<YourUser>\AppData\Roaming\Adobe\CEP\extensions\SilenceX` exists and contains the files from the `release/` folder.
 
-### 1. Prepare for Release
-First, generate the production-ready plugin folder:
-```bash
-npm run build
-```
-This will:
-- Compile the React frontend using Vite.
-- Run `scripts/prepare-package.js`.
-- Gather everything (manifest, scripts, assets) into the `/release` folder.
+---
 
-### 2. Create the .EXE Installer (Windows)
-To generate the one-click `.exe` installer requested:
-1.  Install [Inno Setup Compiler](https://jrsoftware.org/isdl.php).
-2.  Open `installer/silencex_installer.iss`.
-3.  Click **Compile** (Play button).
-4.  Your installer will be generated in `installer/setup/SilenceX_Setup_v1.0.0.exe`.
-
-### 3. Create the .CCX Package (Adobe Standard)
-To create a native Adobe package:
-```bash
-npm run package:ccx
-```
-This generates `SilenceX.ccx` which can be installed via double-click in Creative Cloud.
-
-## 🛠 Project Structure
-
-- `manifest.json`: UXP v5.0+ configuration & permissions.
-- `index.html`: Main UI container.
-- `src/App.tsx`: React-based UI with Adobe Spectrum styling.
-- `src/ffmpeg.ts`: Wrapper for FFmpeg execution & parsing logic.
-- `src/extendscript.js`: Host-side logic for timeline manipulation (Ripple Delete).
-- `package.json`: NPM dependencies for building.
-
-## ⚙️ Technical Details
-
-### Audio Analysis
-The plugin uses FFmpeg's `silencedetect` filter. Ensure `ffmpeg` is installed in your system PATH or bundled with the plugin binary in a production release.
-
-### Timeline Automation
-The automation logic performs ripple deletes starting from the **end of the timeline** working backwards. This ensures that deletions do not shift the remaining silent segments' timecodes, maintaining perfect synchronization.
-
-### Permissions
-The plugin requires `localFileSystem` for temporary audio exports and `launchProcess` for running FFmpeg checks.
+## 📂 Project Summary
+- **UI**: React + Tailwind + Motion (Glitch Aesthetic)
+- **Logic**: ExtendScript for Timeline control + FFmpeg for Audio detection.
+- **Architecture**: CEP (Adobe Extensions standard).
